@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Peak Reach Agency | Coming Soon</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://files.catbox.moe/xm18h5.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #000000;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+      /* Desktop Padding */
+      padding: 4rem 2rem 2.5rem;
+    }
+
+    /* Ambient Background Glow */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(circle, rgba(0, 210, 255, 0.16) 0%, rgba(58, 245, 137, 0.06) 55%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .main-container {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: auto 0;
+    }
+
+    /* --- DESKTOP LOGO --- */
+    .brand-logo-wrap {
+      margin-bottom: 1.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brand-logo-wrap img {
+      height: 72px;
+      width: auto;
+      max-width: 290px;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 24px rgba(0, 210, 255, 0.22));
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.95rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #3af589;
+      margin-bottom: 1.75rem;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3af589;
+      box-shadow: 0 0 8px #3af589;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* --- DESKTOP TYPOGRAPHY --- */
+    h1 {
+      font-size: clamp(2.2rem, 4.2vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #00d2ff 0%, #3af589 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtext {
+      color: var(--text-muted);
+      font-size: 1.08rem;
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 2.25rem;
+    }
+
+    /* --- DESKTOP BUTTONS --- */
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 12px;
+      font-size: 0.96rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-audit {
+      background: #ffffff;
+      color: #000000;
+      border: 1px solid #ffffff;
+    }
+
+    .btn-audit:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+      border: 1px solid #25d366;
+    }
+
+    .btn-whatsapp:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.28);
+    }
+
+    /* --- DESKTOP MARQUEE --- */
+    .marquee-section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .marquee-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #64748b;
+      margin-bottom: 1.6rem;
+    }
+
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      gap: 3.5rem;
+      align-items: center;
+      animation: scroll 22s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .brand-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      padding: 0 0.5rem;
+    }
+
+    .brand-item img {
+      height: 42px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+      transition: transform 0.2s ease;
+    }
+
+    .brand-item img:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - 1.75rem)); }
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 3rem;
+      font-size: 0.78rem;
+      color: #475569;
+    }
+
+    /* ========================================================
+       MOBILE-SPECIFIC STYLES (Screen widths <= 640px)
+       ======================================================== */
+    @media (max-width: 640px) {
+      body {
+        padding: 2.25rem 1.25rem 1.5rem;
+        justify-content: flex-start;
+      }
+
+      body::before {
+        top: 25%;
+        width: 320px;
+        height: 320px;
+      }
+
+      .main-container {
+        margin: 1.5rem 0 0;
+      }
+
+      /* Scaled down logo for mobile */
+      .brand-logo-wrap {
+        margin-bottom: 1.25rem;
+      }
+
+      .brand-logo-wrap img {
+        height: 46px;
+        max-width: 210px;
+      }
+
+      /* Compact status badge */
+      .status-badge {
+        font-size: 0.72rem;
+        padding: 0.32rem 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+
+      /* Tight mobile headline */
+      h1 {
+        font-size: clamp(1.75rem, 7.5vw, 2.2rem);
+        line-height: 1.2;
+        letter-spacing: -0.025em;
+        margin-bottom: 0.85rem;
+      }
+
+      p.subtext {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin-bottom: 1.75rem;
+        padding: 0 0.25rem;
+      }
+
+      /* Full-width, easy touch buttons */
+      .cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        width: 100%;
+        height: 50px;
+        font-size: 0.95rem;
+        border-radius: 12px;
+      }
+
+      /* Mobile optimized marquee */
+      .marquee-section {
+        margin-top: 3rem;
+      }
+
+      .marquee-title {
+        font-size: 0.68rem;
+        margin-bottom: 1.1rem;
+      }
+
+      .marquee-track {
+        gap: 1.75rem;
+        animation-duration: 17s; /* slightly faster flow for mobile touch viewport */
+      }
+
+      .brand-item {
+        height: 40px;
+      }
+
+      .brand-item img {
+        height: 30px;
+        max-width: 105px;
+      }
+
+      @keyframes scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(calc(-50% - 0.875rem)); }
+      }
+
+      footer {
+        margin-top: 2rem;
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- Agency Logo -->
+    <div class="brand-logo-wrap">
+      <img src="https://imglink.cc/cdn/ryJk5gm4gQ.png" alt="Peak Reach Agency Logo" />
+    </div>
+
+    <!-- Status Badge -->
+    <div class="status-badge">
+      <span class="status-dot"></span> New Website In Progress
+    </div>
+
+    <!-- Headline -->
+    <h1>We Find Where You're Losing Sales. <span>Then We Fix It.</span></h1>
+
+    <!-- Subtext -->
+    <p class="subtext">
+      Peak Reach Agency's official platform is launching soon. We are currently accepting select client projects.
+    </p>
+
+    <!-- CTAs -->
+    <div class="cta-group">
+      <a 
+        href="mailto:pra.agency@outlook.com?subject=Request%20for%20Free%20E-Commerce%20Audit%20-%20Peak%20Reach&body=Hi%20Peak%20Reach%20Team,%0A%0AI%20would%20like%20to%20request%20a%20free%20audit%20for%20our%20store.%0A%0A-%20Website%20URL:%20%0A-%20Current%20Monthly%20Revenue:%20%0A-%20Main%20Bottleneck/Issue:%20%0A%0ABest%20regards," 
+        class="btn btn-audit"
+      >
+        Get a Free Audit &rarr;
+      </a>
+
+      <a 
+        href="https://wa.me/919830698153?text=Hi%20Peak%20Reach%20Agency,%20I'm%20interested%20in%20scaling%20my%20store%20and%20fixing%20sales%20bottlenecks." 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn btn-whatsapp"
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Brands Marquee -->
+  <section class="marquee-section">
+    <div class="marquee-title">Brands That Trust Us</div>
+    
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="brand-item"><img src="https://files.catbox.moe/36vqtp.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/1sy9z8.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/kcl0lb.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/t5jpey.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/8pf7vk.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/krmh5u.png" alt="Client Brand" /></div>
+
+        <!-- Set 2 (Continuous Loop Duplicate) -->
+        <div class="brand-item"><img src="https://files.catbox.moe/36vqtp.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/1sy9z8.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/kcl0lb.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/t5jpey.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/8pf7vk.png" alt="Client Brand" /></div>
+        <div class="brand-item"><img src="https://files.catbox.moe/krmh5u.png" alt="Client Brand" /></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Peak Reach Agency. All rights reserved.
+  </footer>
+
+</body>
+</html>
